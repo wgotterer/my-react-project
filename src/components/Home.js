@@ -18,6 +18,29 @@ function Home({randomRecipe}) {
     setShowRecipe(!showRecipe)
   }
 
+ 
+
+  function handleAddToFavorite(){
+    const newMeal = {
+      "idMeal": trial.idMeal,
+      "strMeal": trial.strMeal,
+      "strCategory": trial.strCategory,
+      "strInstructions": trial.strInstructions,
+      "strMealThumb": trial.strMealThumb,
+      "strYoutube": trial.strYoutube
+  }
+  console.log(newMeal)
+    fetch("http://localhost:8000/meals", {
+      method:"POST",
+      header:{
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(newMeal)
+    })
+    .then((resp)=>resp.json())
+    .then((newMeal)=>console.log(newMeal))
+  }
+
   if (trial){
     return(
       <>
@@ -25,11 +48,12 @@ function Home({randomRecipe}) {
       <h2>Helping You Put The Spice Into Your Meal Planning!</h2>
       <h2>{trial.strMeal}</h2> 
       {showVideo ? <ReactPlayer  url={trial.strYoutube}/> : <img onClick={handleVideoClick} height="300" width="300" src={trial.strMealThumb}/>  }
-      <h3>Like what you see? Click the picture for a recipe video.</h3>
-      <button onClick={handleShowRecipe}>Click for Recipe!</button>
+      {showVideo ? null : <h3>Like what you see? Click the picture for a recipe video.</h3> }
+       {<button onClick={handleShowRecipe}>{showRecipe? "Hide Instructions!":"Show Instructions!"}</button>}
+      
       {showRecipe ? <p>{trial.strInstructions}</p> : null}
       <span>
-        <button>Add to favorites</button>
+        <button onClick={handleAddToFavorite}>Add to favorites</button>
       </span>
       </>
     )
