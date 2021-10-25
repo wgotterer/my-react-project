@@ -25,24 +25,24 @@ function NavBar() {
         Home
       </NavLink>
       <NavLink
-        to="/about"
+        to="/search"
         exact
         style={linkStyles}
         activeStyle={{
           background: "darkblue",
         }}
       >
-        About
+        Search
       </NavLink>
       <NavLink
-        to="/login"
+        to="/favorites"
         exact
         style={linkStyles}
         activeStyle={{
           background: "darkblue",
         }}
       >
-        Login
+        Favorites
       </NavLink>
     </div>
   );
