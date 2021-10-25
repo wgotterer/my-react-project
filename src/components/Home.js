@@ -32,7 +32,7 @@ function Home({randomRecipe}) {
   console.log(newMeal)
     fetch("http://localhost:8000/meals", {
       method:"POST",
-      header:{
+      headers:{
         "Content-Type": "application/json",
       },
       body:JSON.stringify(newMeal)

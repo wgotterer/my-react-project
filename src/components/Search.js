@@ -2,7 +2,7 @@
 import React from "react";
 
 function Search() {
-  return <h1>Search for your favorite meal!</h1>;
+  return <h1>Add your favorite meal!</h1>;
 }
 
 export default Search;
