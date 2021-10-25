@@ -5,14 +5,19 @@ import ReactPlayer from "react-player"
 function Home({randomRecipe}) {
 
   const [showVideo, setShowVideo] = useState(false)
+  const [showRecipe, setShowRecipe] = useState(false)
   
    const trial = randomRecipe ? randomRecipe["meals"][0] : null
   console.log(trial)
 
   function handleVideoClick(){
     setShowVideo(!showVideo)
-    console.log("click")
   }
+
+  function handleShowRecipe(){
+    setShowRecipe(!showRecipe)
+  }
+
   if (trial){
     return(
       <>
@@ -21,7 +26,11 @@ function Home({randomRecipe}) {
       <h2>{trial.strMeal}</h2> 
       {showVideo ? <ReactPlayer  url={trial.strYoutube}/> : <img onClick={handleVideoClick} height="300" width="300" src={trial.strMealThumb}/>  }
       <h3>Like what you see? Click the picture for a recipe video.</h3>
-      
+      <button onClick={handleShowRecipe}>Click for Recipe!</button>
+      {showRecipe ? <p>{trial.strInstructions}</p> : null}
+      <span>
+        <button>Add to favorites</button>
+      </span>
       </>
     )
   }else {
