@@ -1,72 +1,45 @@
 // src/components/Home.js
-import React, {useState} from "react";
+import React  from "react";
 import ReactPlayer from "react-player"
 
-function Home({randomRecipe}) {
+function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, handleVideoClick, individualRecipe, showVideo, showRecipe }) {
 
-  const [showVideo, setShowVideo] = useState(false)
-  const [showRecipe, setShowRecipe] = useState(false)
-  
-   const trial = randomRecipe ? randomRecipe["meals"][0] : null
-  console.log(trial)
+  // {for (key in individualRecipe){
+  //   console.log(key)
+  // }}
 
-  function handleVideoClick(){
-    setShowVideo(!showVideo)
-  }
+  // Object.keys(individualRecipe).map(function(keyName, keyIndex) {
+  //   // use keyName to get current key's name
+  //   console.log(keyName)
+  //   // and a[keyName] to get its value
+  // })
 
-  function handleShowRecipe(){
-    setShowRecipe(!showRecipe)
-  }
-
- 
-
-  function handleAddToFavorite(){
-    const newMeal = {
-      "idMeal": trial.idMeal,
-      "strMeal": trial.strMeal,
-      "strCategory": trial.strCategory,
-      "strInstructions": trial.strInstructions,
-      "strMealThumb": trial.strMealThumb,
-      "strYoutube": trial.strYoutube
-  }
-  console.log(newMeal)
-    fetch("http://localhost:8000/meals", {
-      method:"POST",
-      headers:{
-        "Content-Type": "application/json",
-      },
-      body:JSON.stringify(newMeal)
-    })
-    .then((resp)=>resp.json())
-    .then((newMeal)=>console.log(newMeal))
-  }
-
-  if (trial){
+  if (individualRecipe){
     return(
       <>
       <h1>SPICE IT UP!</h1>
       <h2>Helping You Put The Spice Into Your Meal Planning!</h2>
-      <h2>{trial.strMeal}</h2> 
-      {showVideo ? <ReactPlayer  url={trial.strYoutube}/> : <img onClick={handleVideoClick} height="300" width="300" src={trial.strMealThumb}/>  }
+      <h2>{individualRecipe.strMeal}</h2> 
+      {showVideo ? <ReactPlayer  url={individualRecipe.strYoutube}/> : <img onClick={handleVideoClick} height="300" width="300" src={individualRecipe.strMealThumb} alt={individualRecipe.strMeal}/>  }
       {showVideo ? null : <h3>Like what you see? Click the picture for a recipe video.</h3> }
+      {showVideo ? <button onClick={handleVideoClick}>Hide Video</button>: null}
        {<button onClick={handleShowRecipe}>{showRecipe? "Hide Instructions!":"Show Instructions!"}</button>}
       
-      {showRecipe ? <p>{trial.strInstructions}</p> : null}
+      {showRecipe ? <p>{individualRecipe.strInstructions}</p> : null}
+      <ul>
+        {/* Add conditionally rendered ingrediants and have each one have list. Iterate of individualRecipe */}
+      </ul>
       <span>
         <button onClick={handleAddToFavorite}>Add to favorites</button>
+      </span>
+      <span>
+        <button onClick={handleClickForNewPic}>Gimme another recipe</button>
       </span>
       </>
     )
   }else {
     return <h3>Loading...</h3>
   }
-  // return (
-  //   <>
-  // <h1>SPICE IT UP HOMEPAGE!</h1>
-  // {trial ? <img onClick={handleVideoClick} height="300" width="300" src={trial.strMealThumb}/> : null}
-  // {trial ? <h2>{trial.strMeal}</h2> : null}
-  //  </>
-  // )
   
 }
 
