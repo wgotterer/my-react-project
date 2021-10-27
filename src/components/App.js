@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
-import Search from "./Search";
+import Add from "./Add";
 import Favorites from "./Favorites";
 import NavBar from "./NavBar";
 
@@ -103,8 +103,8 @@ function App() {
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/search">
-          <Search />
+        <Route exact path="/add">
+          <Add />
         </Route>
         <Route exact path="/favorites">
           <Favorites showVideo={showVideo} handleDelete={handleDelete} faveMeals={faveMeals} />

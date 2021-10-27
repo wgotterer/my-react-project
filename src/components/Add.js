@@ -2,9 +2,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard"
-function Search() {
 
-const [addRecipe, setAddRecipe] = useState([])
+function Add() {
+
+// const [addRecipe, setAddRecipe] = useState([])
 const [allRecipes, setAllRecipes] = useState([])
 
 
@@ -14,10 +15,9 @@ const [allRecipes, setAllRecipes] = useState([])
    //console.log(e.target.image.value)
  const newMeal = {
       "strMeal": e.target.name.value,
-      "strCategory": e.target.category.value,
+      "strIngredients": e.target.ingredients.value,
       "strInstructions": e.target.instructions.value,
       "strMealThumb": e.target.image.value,
-      "strYoutube": e.target.youtubeLink.value,
        }
        fetch("http://localhost:8000/recipes", {
          method:'POST',
@@ -27,7 +27,7 @@ const [allRecipes, setAllRecipes] = useState([])
          body: JSON.stringify(newMeal)
        })
        .then(response => response.json())
-       .then(data => setAddRecipe(data))
+       .then(data => setAllRecipes([data, ...allRecipes]))
      }
      
      useEffect(() => {
@@ -36,11 +36,11 @@ const [allRecipes, setAllRecipes] = useState([])
         .then(data => setAllRecipes(data))
      }, [])
 
-     const newAllRecipes = [...allRecipes, addRecipe]
+    
      
      function deleteRecipe(recipe){
       fetch(`http://localhost:8000/recipes/${recipe.id}`)
-      .then(()=> setAllRecipes(newAllRecipes.filter((meal)=> meal.id !== recipe.id)))
+      .then(()=> setAllRecipes(allRecipes.filter((meal)=> meal.id !== recipe.id)))
   }
       
 
@@ -50,13 +50,12 @@ const [allRecipes, setAllRecipes] = useState([])
     <form onSubmit={handleSubmit}>
       <input   type="text" name="name" placeholder="Recipe name" />
       <input   type="text" name="image" placeholder="Image URL" />
+      <input   type="text" name="ingredients" placeholder="Ingredients"/>
       <input   type="text" name="instructions"  placeholder="Instructions" />
-      <input   type="text" name="youtubeLink" placeholder="Youtube"/>
-      <input   type="text" name="category" placeholder="Category"/>
       <button  type="submit"> Add Recipe</button>
     </form>
-  {newAllRecipes.map((recipe)=> <RecipeCard recipe={recipe} deleteRecipe={deleteRecipe}/>)}
+  {allRecipes.map((recipe)=> <RecipeCard recipe={recipe} deleteRecipe={deleteRecipe}/>)}
   </div>
 )
 }
-export default Search;
+export default Add;
