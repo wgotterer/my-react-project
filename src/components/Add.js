@@ -39,7 +39,9 @@ const [allRecipes, setAllRecipes] = useState([])
     
      
      function deleteRecipe(recipe){
-      fetch(`http://localhost:8000/recipes/${recipe.id}`)
+      fetch(`http://localhost:8000/recipes/${recipe.id}`, {
+        method: "DELETE"
+      })
       .then(()=> setAllRecipes(allRecipes.filter((meal)=> meal.id !== recipe.id)))
   }
       
