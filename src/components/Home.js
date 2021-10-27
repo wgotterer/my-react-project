@@ -1,6 +1,7 @@
 // src/components/Home.js
 import React, {useState}  from "react";
-import ReactPlayer from "react-player"
+import ReactPlayer from "react-player";
+
 
 function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, handleVideoClick, individualRecipe, showVideo, showRecipe }) {
 
@@ -10,7 +11,6 @@ function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, hand
     setShowIngredients(!showIngredients)
   }
 
-  console.log(individualRecipe)
  
   const listOfIngredients = []
 
@@ -32,16 +32,7 @@ function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, hand
       
     {<h4 onClick={handleShowIngredients}> {showIngredients ? "Hide Ingredients!" : "Click for Ingredients!" }</h4>}
    {showIngredients ?
-   <ol>{listOfIngredients}</ol>
-  //  <p>{individualRecipe.strMeasure1}-{individualRecipe.strIngredient1}, {individualRecipe.strMeasure2}-{individualRecipe.strIngredient2}, 
-  //   {individualRecipe.strMeasure3}-{individualRecipe.strIngredient3}, {individualRecipe.strMeasure4}-{individualRecipe.strIngredient4}, 
-  //   {individualRecipe.strMeasure5}-{individualRecipe.strIngredient5}, {individualRecipe.strMeasure6}-{individualRecipe.strIngredient6}, 
-  //   {individualRecipe.strMeasure7}-{individualRecipe.strIngredient7}, {individualRecipe.strMeasure8}-{individualRecipe.strIngredient8}, 
-  //   {individualRecipe.strMeasure9}-{individualRecipe.strIngredient9}, {individualRecipe.strMeasure10}-{individualRecipe.strIngredient10}, 
-  //   {individualRecipe.strMeasure11}-{individualRecipe.strIngredient11}, </p>
-    : null }
-
-
+   <ol>{listOfIngredients}</ol>: null }
       <span>
         <button onClick={handleAddToFavorite}>Add to favorites</button>
       </span>

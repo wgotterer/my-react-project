@@ -28,6 +28,7 @@ function App() {
     .then((savedFaves)=>setFaveMeals(savedFaves))
   }, [])
 
+  
 
   function handleAddToFavorite(){
     const individualRecipe = randomRecipe["meals"][0]
@@ -76,6 +77,7 @@ function App() {
     })
     .then((resp)=>resp.json())
     .then((newMeal)=>setFaveMeals([...faveMeals, newMeal]))
+    
   }
 
   function handleDelete(meal){

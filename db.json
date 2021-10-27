@@ -1,4 +1,12 @@
 {
   "meals": [],
-  "recipes": []
+  "recipes": [
+    {
+      "strMeal": "William Gotterer",
+      "strIngredients": "1 body",
+      "strInstructions": "eat food",
+      "strMealThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Shoyu_Ramen.jpg/1200px-Shoyu_Ramen.jpg",
+      "id": 1
+    }
+  ]
 }
