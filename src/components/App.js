@@ -52,6 +52,18 @@ function App() {
       "strIngredient13": individualRecipe.strIngredient13,
       "strIngredient14": individualRecipe.strIngredient14,
       "strIngredient15": individualRecipe.strIngredient15,
+      "strMeasure1": individualRecipe.strMeasure1,
+      "strMeasure2": individualRecipe.strMeasure2,
+      "strMeasure3": individualRecipe.strMeasure3,
+      "strMeasure4": individualRecipe.strMeasure4,
+      "strMeasure5": individualRecipe.strMeasure5,
+      "strMeasure6": individualRecipe.strMeasure6,
+      "strMeasure7": individualRecipe.strMeasure7,
+      "strMeasure8": individualRecipe.strMeasure8,
+      "strMeasure9": individualRecipe.strMeasure9,
+      "strMeasure10": individualRecipe.strMeasure10,
+      "strMeasure11": individualRecipe.strMeasure11,
+      "strMeasure12": individualRecipe.strMeasure12,
   }
   
     fetch("http://localhost:8000/meals", {

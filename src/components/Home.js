@@ -1,18 +1,16 @@
 // src/components/Home.js
-import React  from "react";
+import React, {useState}  from "react";
 import ReactPlayer from "react-player"
 
 function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, handleVideoClick, individualRecipe, showVideo, showRecipe }) {
 
-  // {for (key in individualRecipe){
-  //   console.log(key)
-  // }}
+  const [showIngredients, setShowIngredients] = useState(false)
 
-  // Object.keys(individualRecipe).map(function(keyName, keyIndex) {
-  //   // use keyName to get current key's name
-  //   console.log(keyName)
-  //   // and a[keyName] to get its value
-  // })
+  function handleShowIngredients(){
+    setShowIngredients(!showIngredients)
+  }
+ 
+console.log(individualRecipe)
 
   if (individualRecipe){
     return(
@@ -23,12 +21,20 @@ function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, hand
       {showVideo ? <ReactPlayer  url={individualRecipe.strYoutube}/> : <img onClick={handleVideoClick} height="300" width="300" src={individualRecipe.strMealThumb} alt={individualRecipe.strMeal}/>  }
       {showVideo ? null : <h3>Like what you see? Click the picture for a recipe video.</h3> }
       {showVideo ? <button onClick={handleVideoClick}>Hide Video</button>: null}
-       {<button onClick={handleShowRecipe}>{showRecipe? "Hide Instructions!":"Show Instructions!"}</button>}
-      
+       {<h4 onClick={handleShowRecipe}>{showRecipe? "Hide Instructions!":"Click for Instructions!"}</h4>}
       {showRecipe ? <p>{individualRecipe.strInstructions}</p> : null}
-      <ul>
-        {/* Add conditionally rendered ingrediants and have each one have list. Iterate of individualRecipe */}
-      </ul>
+      
+    {<h4 onClick={handleShowIngredients}> {showIngredients ? "Hide Ingredients!" : "Click for Ingredients!" }</h4>}
+   {showIngredients ?
+   <p>{individualRecipe.strMeasure1}-{individualRecipe.strIngredient1}, {individualRecipe.strMeasure2}-{individualRecipe.strIngredient2}, 
+    {individualRecipe.strMeasure3}-{individualRecipe.strIngredient3}, {individualRecipe.strMeasure4}-{individualRecipe.strIngredient4}, 
+    {individualRecipe.strMeasure5}-{individualRecipe.strIngredient5}, {individualRecipe.strMeasure6}-{individualRecipe.strIngredient6}, 
+    {individualRecipe.strMeasure7}-{individualRecipe.strIngredient7}, {individualRecipe.strMeasure8}-{individualRecipe.strIngredient8}, 
+    {individualRecipe.strMeasure9}-{individualRecipe.strIngredient9}, {individualRecipe.strMeasure10}-{individualRecipe.strIngredient10}, 
+    {individualRecipe.strMeasure11}-{individualRecipe.strIngredient11}, </p>
+    : null }
+
+
       <span>
         <button onClick={handleAddToFavorite}>Add to favorites</button>
       </span>
