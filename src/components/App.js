@@ -7,13 +7,13 @@ import Favorites from "./Favorites";
 import NavBar from "./NavBar";
 
 function App() {
-  const [randomRecipe, setRandomRecipe] = useState(false)
+  const [randomRecipe, setRandomRecipe] = useState({"meals":[{}]})
   const [faveMeals, setFaveMeals] = useState([])
   const [showVideo, setShowVideo] = useState(false)
   const [showRecipe, setShowRecipe] = useState(false)
   // const [savedRecipe, setSavedRecipe] = useState([])
   
-  const individualRecipe = randomRecipe ? randomRecipe["meals"][0] : null
+  
 
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
@@ -30,6 +30,7 @@ function App() {
 
 
   function handleAddToFavorite(){
+    const individualRecipe = randomRecipe["meals"][0]
     const newMeal = {
       "idMeal": individualRecipe.idMeal,
       "strMeal": individualRecipe.strMeal,
@@ -110,7 +111,7 @@ function App() {
           <Favorites showVideo={showVideo} handleDelete={handleDelete} faveMeals={faveMeals} />
         </Route>
         <Route exact path="/">
-          <Home handleClickForNewPic={handleClickForNewPic} showRecipe={showRecipe} showVideo={showVideo} handleAddToFavorite={handleAddToFavorite} handleShowRecipe={handleShowRecipe} handleVideoClick={handleVideoClick} individualRecipe={individualRecipe}/>
+          <Home handleClickForNewPic={handleClickForNewPic} showRecipe={showRecipe} showVideo={showVideo} handleAddToFavorite={handleAddToFavorite} handleShowRecipe={handleShowRecipe} handleVideoClick={handleVideoClick} individualRecipe={randomRecipe["meals"][0]}/>
         </Route>
       </Switch>
     </div>
