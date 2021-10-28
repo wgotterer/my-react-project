@@ -8,7 +8,6 @@ function Favorites({faveMeals, handleDelete}) {
 
   return (
     <div>
-      <h1> Favorites List </h1>
       {faveMeals.map((meal)=> <FavoriteCards handleDelete={handleDelete} key={meal.idMeal} meal={meal} /> )}
     </div>
   );

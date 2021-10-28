@@ -1,12 +1,12 @@
 .home {
   text-align: center;
   color: rgb(87, 151, 211);
-  font-family: sans-serif;
+  font-family: American Typewriter, serif;
 }
 
 .nav {
   text-align: center;
-  font-family: fantasy;
+  font-family: American Typewriter, serif;
   animation: color-change 2s infinite;
   
 }
@@ -34,16 +34,64 @@
   opacity: 0.3;
 }
 
+.home-video{
+  display: block;
+  margin: 0 auto; 
+}
+
+.home-list{
+  list-style-type: none;
+  text-align: center;
+}
+
+
 @keyframes color-change {
   0% { color:rgb(161, 185, 192); }
-  50% { color: rgb(218, 192, 209); }
-  75% { color:rgb(210, 187, 216)}
-  100% { color: rgb(140, 135, 168); }
-  75% {color:rgb(216, 167, 214)}
-  50% {color:rgb(175, 175, 224)}
+  50% { color: rgb(221, 198, 213); }
+  75% { color:rgb(212, 180, 219)}
+  100% { color: rgb(180, 175, 207); }
+  75% {color:rgb(218, 195, 217)}
+  50% {color:rgb(203, 203, 233)}
 }
 .name {
-    font-style: italic;
-    color: rgb(5, 3, 5);
+  color: rgb(87, 151, 211);
 
+}
+
+.recipeCard {
+  text-align: center;
+  color: rgb(87, 151, 211);
+  font-family: American Typewriter, serif;
+}
+
+.new-recipe-form{
+  text-align: center;
+  font-family: American Typewriter, serif;
+  animation: color-change 2s infinite;
+}
+
+.faveCard {
+  text-align: center;
+  color: rgb(87, 151, 211);
+  font-family: American Typewriter, serif;
+}
+
+.fave-title{
+  font-family: American Typewriter, serif;
+  animation: color-change 2s infinite;
+}
+.fave-image:hover {
+  /* transition: .5s ease; */
+  transition: .5s ease-in-out;
+  opacity: 0.3;
+}
+
+.fave-video{
+  display: block;
+  margin: 0 auto; 
+}
+
+.fave-ingredients{
+  text-align: center;
+  list-style-type: none;
 }
