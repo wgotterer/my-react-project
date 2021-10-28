@@ -13,7 +13,7 @@ import React, {useState} from 'react'
         <div>
             <h2> {recipe.strMeal} </h2>
             <img src={recipe.strMealThumb} width="300px" height="300px" />
-            <button onClick={()=>deleteRecipe(recipe)}> delete </button>
+            <button onClick={()=>deleteRecipe(recipe)}> 🗑️ </button>
             {<h4 onClick={handleShowIngredients}>{showIngredients ? "Hide ingredients!" : "Click for ingredients!"}</h4>}
             {showIngredients ? <p> {recipe.strIngredients}</p> : null}
             <p> {recipe.strInstructions}</p>
