@@ -1,13 +1,97 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.home {
+  text-align: center;
+  color: rgb(87, 151, 211);
+  font-family: American Typewriter, serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.nav {
+  text-align: center;
+  font-family: American Typewriter, serif;
+  animation: color-change 2s infinite;
+  
+}
+.route:hover{
+  font-size: 105%;
+  animation: 2ms;
+}
+.routeTwo:hover{
+  font-size: 105%;
+}
+.routeThree:hover{
+  font-size: 105%;
+}
+.ingredient:hover{
+  font-size: 105%;
+  color: rgb(87, 13, 83);
+}
+.instruction:hover{
+  font-size: 105%;
+  color: rgb(87, 13, 83);
+}
+.image:hover {
+  /* transition: .5s ease; */
+  transition: .5s ease-in-out;
+  opacity: 0.3;
+}
+
+.home-video{
+  display: block;
+  margin: 0 auto; 
+}
+
+.home-list{
+  list-style-type: none;
+  text-align: center;
+}
+
+
+@keyframes color-change {
+  0% { color:rgb(161, 185, 192); }
+  50% { color: rgb(221, 198, 213); }
+  75% { color:rgb(212, 180, 219)}
+  100% { color: rgb(180, 175, 207); }
+  75% {color:rgb(218, 195, 217)}
+  50% {color:rgb(203, 203, 233)}
+}
+.name {
+  color: rgb(87, 151, 211);
+
+}
+
+.recipeCard {
+  text-align: center;
+  color: rgb(87, 151, 211);
+  font-family: American Typewriter, serif;
+}
+
+.new-recipe-form{
+  text-align: center;
+  font-family: American Typewriter, serif;
+  animation: color-change 2s infinite;
+}
+
+.faveCard {
+  text-align: center;
+  color: rgb(87, 151, 211);
+  font-family: American Typewriter, serif;
+}
+
+.fave-title{
+  font-family: American Typewriter, serif;
+  animation: color-change 2s infinite;
+}
+.fave-image:hover {
+  /* transition: .5s ease; */
+  transition: .5s ease-in-out;
+  opacity: 0.3;
+}
+
+.fave-video{
+  display: block;
+  margin: 0 auto; 
+}
+
+.fave-ingredients{
+  text-align: center;
+  list-style-type: none;
 }

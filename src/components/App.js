@@ -1,6 +1,6 @@
 
 import React, {useEffect, useState} from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Home from "./Home";
 import Add from "./Add";
 import Favorites from "./Favorites";
@@ -13,7 +13,8 @@ function App() {
   const [showRecipe, setShowRecipe] = useState(false)
   // const [savedRecipe, setSavedRecipe] = useState([])
   
-  
+  const history = useHistory()
+  console.log(history)
 
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
@@ -77,7 +78,7 @@ function App() {
     })
     .then((resp)=>resp.json())
     .then((newMeal)=>setFaveMeals([...faveMeals, newMeal]))
-    
+    history.push(`/favorites`)
   }
 
   function handleDelete(meal){
