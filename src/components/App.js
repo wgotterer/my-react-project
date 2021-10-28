@@ -77,7 +77,7 @@ function App() {
       body:JSON.stringify(newMeal)
     })
     .then((resp)=>resp.json())
-    .then((newMeal)=>setFaveMeals([...faveMeals, newMeal]))
+    .then((newMeal)=>setFaveMeals([newMeal, ...faveMeals]))
     history.push(`/favorites`)
   }
 

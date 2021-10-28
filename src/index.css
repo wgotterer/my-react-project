@@ -53,6 +53,16 @@
   75% {color:rgb(218, 195, 217)}
   50% {color:rgb(203, 203, 233)}
 }
+
+@keyframes color-change-fave-title {
+  0% { color:rgb(219, 218, 168); }
+  50% { color: rgb(221, 195, 155); }
+  75% { color:rgb(219, 180, 180)}
+  100% { color: rgb(194, 129, 100); }
+  75% {color:rgb(218, 198, 134)}
+  50% {color:rgb(202, 206, 146)}
+}
+
 .name {
   color: rgb(87, 151, 211);
 
@@ -62,6 +72,11 @@
   text-align: center;
   color: rgb(87, 151, 211);
   font-family: American Typewriter, serif;
+}
+
+.new-recipe-click:hover{
+  font-size: 105%;
+  color: rgb(87, 13, 83);
 }
 
 .new-recipe-form{
@@ -77,8 +92,9 @@
 }
 
 .fave-title{
+  text-align: center;
   font-family: American Typewriter, serif;
-  animation: color-change 2s infinite;
+  animation: color-change-fave-title  2s infinite;
 }
 .fave-image:hover {
   /* transition: .5s ease; */
@@ -95,3 +111,4 @@
   text-align: center;
   list-style-type: none;
 }
+

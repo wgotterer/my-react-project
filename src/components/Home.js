@@ -12,22 +12,14 @@ function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, hand
     setShowIngredients(!showIngredients)
   }
 
- 
   const listOfIngredients = []
 
   for(let i=1; i<=20; i++){
-    if(individualRecipe[`strIngredient${i}`] && individualRecipe[`strMeasure${i}`] ===  "" || individualRecipe[`strIngredient${i}`] && individualRecipe[`strMeasure${i}`] === null){
+    if(individualRecipe[`strIngredient${i}`] && individualRecipe[`strMeasure${i}`] ===  "" || 
+      individualRecipe[`strIngredient${i}`] && individualRecipe[`strMeasure${i}`] === null){
       break
-    } listOfIngredients.push(<li>{individualRecipe[`strMeasure${i}`]} {individualRecipe[`strIngredient${i}`]}</li>)
+    }listOfIngredients.push(<li>{individualRecipe[`strMeasure${i}`]} {individualRecipe[`strIngredient${i}`]}</li>)
   }
-
-  // const listOfMeasure = []
-
-  // for(let i=1; i<=20; i++){
-  //   if(individualRecipe[`strMeasure${i}`] === "" || individualRecipe[`strMeasure${i}`] === null){
-  //     break
-  //   } listOfMeasure.push(<li>{individualRecipe[`strMeasure${i}`]}</li>)
-  // }
 
   if (individualRecipe){
     return(
@@ -37,12 +29,9 @@ function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, hand
       {showVideo ? null : <h3>Like what you see? Click the picture for a recipe video.</h3> }
       {showVideo ? <button onClick={handleVideoClick}>Hide Video</button>: null}
       {<h4 className="ingredient" onClick={handleShowIngredients}> {showIngredients ? "Hide Ingredients!" : "Click for Ingredients!" }</h4>}
-    {showIngredients ? <ul className="home-list">{listOfIngredients}</ul>: null }
-    {/* {showIngredients ? <ul>{listOfMeasure}</ul>: null } */}
+      {showIngredients ? <ul className="home-list">{listOfIngredients}</ul>: null }
        {<h4  className="instruction" onClick={handleShowRecipe}>{showRecipe? "Hide Instructions!":"Click for Instructions!"}</h4>}
       {showRecipe ? <p>{individualRecipe.strInstructions}</p> : null}
-      
-    
       <span>
         <button onClick={handleAddToFavorite}>Add to favorites</button>
       </span>

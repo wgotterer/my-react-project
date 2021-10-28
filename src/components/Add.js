@@ -49,7 +49,7 @@ const [allRecipes, setAllRecipes] = useState([])
  return (
   <div className="new-recipe-form">
     <h2>New Recipe</h2>
-    <form onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
       <input   type="text" name="name" placeholder="Recipe name" />
       <input   type="text" name="image" placeholder="Image URL" />
       <input   type="text" name="ingredients" placeholder="Ingredients"/>
