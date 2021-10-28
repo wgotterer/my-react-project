@@ -7,28 +7,78 @@ function Add() {
 
 // const [addRecipe, setAddRecipe] = useState([])
 const [allRecipes, setAllRecipes] = useState([])
+const [formState, setFormSate] = useState({
+     "strMeal": "",
+     "strIngredients": "",
+     "strInstructions": "",
+     "strMealThumb": ""
+})
 
+function handleChange(e){
+  const name = e.target.name
+  let value = e.target.value
+
+  setFormSate({
+    ...formState,
+    [name]:value
+  })
+}
+
+
+
+function handleSubmit(e){
+  e.preventDefault()
+  //console.log(e.target.image.value)
+let newMeal = {
+     "strMeal": e.target.strMeal.value,
+     "strIngredients": e.target.strIngredients.value,
+     "strInstructions": e.target.strInstructions.value,
+     "strMealThumb": e.target.strMealThumb.value,
+      }
+      fetch("http://localhost:8000/recipes", {
+        method:'POST',
+        headers:  {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(newMeal)
+      })
+      .then(response => response.json())
+      .then(data => setAllRecipes([data, ...allRecipes]))
+      setFormSate({
+        "strMeal": "",
+        "strIngredients": "",
+        "strInstructions": "",
+        "strMealThumb": ""
+   })
+      
+    }
 
  
- function handleSubmit(e){
-   e.preventDefault()
-   //console.log(e.target.image.value)
- const newMeal = {
-      "strMeal": e.target.name.value,
-      "strIngredients": e.target.ingredients.value,
-      "strInstructions": e.target.instructions.value,
-      "strMealThumb": e.target.image.value,
-       }
-       fetch("http://localhost:8000/recipes", {
-         method:'POST',
-         headers:  {
-           "Content-type": "application/json"
-         },
-         body: JSON.stringify(newMeal)
-       })
-       .then(response => response.json())
-       .then(data => setAllRecipes([data, ...allRecipes]))
-     }
+//  function handleSubmit(e){
+//    e.preventDefault()
+//    //console.log(e.target.image.value)
+//  let newMeal = {
+//       "strMeal": e.target.name.value,
+//       "strIngredients": e.target.ingredients.value,
+//       "strInstructions": e.target.instructions.value,
+//       "strMealThumb": e.target.image.value,
+//        }
+//        fetch("http://localhost:8000/recipes", {
+//          method:'POST',
+//          headers:  {
+//            "Content-type": "application/json"
+//          },
+//          body: JSON.stringify(newMeal)
+//        })
+//        .then(response => response.json())
+//        .then(data => setAllRecipes([data, ...allRecipes]))
+//        setAllRecipes({
+//         "strMeal": "",
+//         "strIngredients": "",
+//         "strInstructions": "",
+//         "strMealThumb": "",
+//          })
+//      }
      
      useEffect(() => {
         fetch("http://localhost:8000/recipes")
@@ -50,10 +100,10 @@ const [allRecipes, setAllRecipes] = useState([])
   <div className="new-recipe-form">
     <h2>New Recipe</h2>
     <form  onSubmit={handleSubmit}>
-      <input   type="text" name="name" placeholder="Recipe name" />
-      <input   type="text" name="image" placeholder="Image URL" />
-      <input   type="text" name="ingredients" placeholder="Ingredients"/>
-      <input   type="text" name="instructions"  placeholder="Instructions" />
+      <input onChange={handleChange} value={formState.strMeal} type="text" name="strMeal" placeholder="Recipe name" />
+      <input onChange={handleChange}  value={formState.strMealThumb} type="text" name="strMealThumb" placeholder="Image URL" />
+      <input onChange={handleChange} value={formState.strIngredients} type="text" name="strIngredients" placeholder="Ingredients"/>
+      <input onChange={handleChange} value={formState.strInstructions} type="text" name="strInstructions"  placeholder="Instructions" />
       <button  type="submit"> Add Recipe</button>
     </form>
   {allRecipes.map((recipe)=> <RecipeCard recipe={recipe} deleteRecipe={deleteRecipe}/>)}

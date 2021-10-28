@@ -40,10 +40,10 @@ function FavoriteCards({meal, handleDelete}) {
     {videoDisplay ? null : <h3>Click picture to see the recipe video!</h3>}
     {videoDisplay? <span><button onClick={hideVideoDisplay}>Hide Video</button></span> : null}
     <button  onClick={()=>handleDelete(meal)}>🗑️</button>
-    <h4 className="new-recipe-click" onClick={handleIngredients}>Click for Ingredients!</h4>
+    <h4 className="new-recipe-click" onClick={handleIngredients}>{ingredientsDisplay ? "Hide ingredients!" : "Click for ingredients!"}</h4>
    {ingredientsDisplay ? <ul className="fave-ingredients"> {getIngredients} </ul> : null }
    {/* {ingredientsDisplay ? <ul> { measurements} </ul> : null } */}
-    <h4 className="new-recipe-click" onClick={handleInstructions}>Click for Instructions!</h4> 
+    <h4 className="new-recipe-click" onClick={handleInstructions}>{instructionDisplay? "Hide instructions!" : "Click for instructions!"}</h4> 
     {instructionDisplay ? <p>{meal.strInstructions}</p> : null}
     </div>
   )
