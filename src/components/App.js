@@ -6,6 +6,7 @@ import Add from "./Add";
 import Favorites from "./Favorites";
 import NavBar from "./NavBar";
 
+
 function App() {
   const [randomRecipe, setRandomRecipe] = useState({"meals":[{}]})
   const [faveMeals, setFaveMeals] = useState([])

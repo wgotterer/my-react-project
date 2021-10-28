@@ -1,12 +1,41 @@
 {
-  "meals": [],
-  "recipes": [
+  "meals": [
     {
-      "strMeal": "William Gotterer",
-      "strIngredients": "1 body",
-      "strInstructions": "eat food",
-      "strMealThumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Shoyu_Ramen.jpg/1200px-Shoyu_Ramen.jpg",
+      "idMeal": "52863",
+      "strMeal": "Vegetarian Casserole",
+      "strCategory": "Vegetarian",
+      "strInstructions": "Heat the oil in a large, heavy-based pan. Add the onions and cook gently for 5 – 10 mins until softened.\r\nAdd the garlic, spices, dried thyme, carrots, celery and peppers and cook for 5 minutes.\r\nAdd the tomatoes, stock, courgettes and fresh thyme and cook for 20 - 25 minutes.\r\nTake out the thyme sprigs. Stir in the lentils and bring back to a simmer. Serve with wild and white basmati rice, mash or quinoa.",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/vptwyt1511450962.jpg",
+      "strYoutube": "https://www.youtube.com/watch?v=oHmKE9mWtWM",
+      "strIngredient1": "Rapeseed Oil",
+      "strIngredient2": "Onion",
+      "strIngredient3": "Garlic",
+      "strIngredient4": "Paprika",
+      "strIngredient5": "Cumin",
+      "strIngredient6": "Thyme",
+      "strIngredient7": "Carrots",
+      "strIngredient8": "Celery",
+      "strIngredient9": "Red Pepper",
+      "strIngredient10": "Yellow Pepper",
+      "strIngredient11": "Tomato",
+      "strIngredient12": "Vegetable Stock Cube",
+      "strIngredient13": "Courgettes",
+      "strIngredient14": "Thyme",
+      "strIngredient15": "Lentils",
+      "strMeasure1": "1",
+      "strMeasure2": "1",
+      "strMeasure3": "3 cloves",
+      "strMeasure4": "1 tsp ",
+      "strMeasure5": "½ tsp",
+      "strMeasure6": "1 tblsp ",
+      "strMeasure7": "3 Medium",
+      "strMeasure8": "2 small stalks",
+      "strMeasure9": "1",
+      "strMeasure10": "1",
+      "strMeasure11": "2 x 400g tins",
+      "strMeasure12": "250ml",
       "id": 1
     }
-  ]
+  ],
+  "recipes": []
 }

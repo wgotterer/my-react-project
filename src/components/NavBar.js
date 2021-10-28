@@ -13,10 +13,11 @@ const linkStyles = {
 
 function NavBar() {
   return (
-    <div>
-      <h1>SPICE IT UP!</h1>
-      <h2>Helping You Put The Spice Into Your Meal Planning!</h2>
-      <NavLink
+    <div className="nav">
+       <h1>SPICE IT UP!</h1>
+       <h2>Helping You Put The Spice Into Your Meal Planning!</h2>
+      
+      <NavLink className="route"
         to="/"
         exact
         style={linkStyles}
@@ -26,7 +27,7 @@ function NavBar() {
       >
         Home
       </NavLink>
-      <NavLink
+      <NavLink className="routeTwo"
         to="/add"
         exact
         style={linkStyles}
@@ -36,7 +37,7 @@ function NavBar() {
       >
         Add Recipe
       </NavLink>
-      <NavLink
+      <NavLink className="routeThree"
         to="/favorites"
         exact
         style={linkStyles}
@@ -46,6 +47,7 @@ function NavBar() {
       >
         Favorites
       </NavLink>
+      
     </div>
   );
 }

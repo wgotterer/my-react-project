@@ -2,10 +2,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard"
+import AddEmpty from "./AddEmpty";
 
 function Add() {
 
-// const [addRecipe, setAddRecipe] = useState([])
 const [allRecipes, setAllRecipes] = useState([])
 
 
@@ -54,6 +54,7 @@ const [allRecipes, setAllRecipes] = useState([])
       <input   type="text" name="image" placeholder="Image URL" />
       <input   type="text" name="ingredients" placeholder="Ingredients"/>
       <input   type="text" name="instructions"  placeholder="Instructions" />
+      <AddEmpty/>
       <button  type="submit"> Add Recipe</button>
     </form>
   {allRecipes.map((recipe)=> <RecipeCard recipe={recipe} deleteRecipe={deleteRecipe}/>)}
