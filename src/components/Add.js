@@ -53,32 +53,7 @@ let newMeal = {
       
     }
 
- 
-//  function handleSubmit(e){
-//    e.preventDefault()
-//    //console.log(e.target.image.value)
-//  let newMeal = {
-//       "strMeal": e.target.name.value,
-//       "strIngredients": e.target.ingredients.value,
-//       "strInstructions": e.target.instructions.value,
-//       "strMealThumb": e.target.image.value,
-//        }
-//        fetch("http://localhost:8000/recipes", {
-//          method:'POST',
-//          headers:  {
-//            "Content-type": "application/json"
-//          },
-//          body: JSON.stringify(newMeal)
-//        })
-//        .then(response => response.json())
-//        .then(data => setAllRecipes([data, ...allRecipes]))
-//        setAllRecipes({
-//         "strMeal": "",
-//         "strIngredients": "",
-//         "strInstructions": "",
-//         "strMealThumb": "",
-//          })
-//      }
+
      
      useEffect(() => {
         fetch("http://localhost:8000/recipes")
@@ -101,7 +76,7 @@ let newMeal = {
     <h2>New Recipe</h2>
     <form  onSubmit={handleSubmit}>
       <input onChange={handleChange} value={formState.strMeal} type="text" name="strMeal" placeholder="Recipe name" />
-      <input onChange={handleChange}  value={formState.strMealThumb} type="text" name="strMealThumb" placeholder="Image URL" />
+      <input onChange={handleChange} value={formState.strMealThumb} type="text" name="strMealThumb" placeholder="Image URL" />
       <input onChange={handleChange} value={formState.strIngredients} type="text" name="strIngredients" placeholder="Ingredients"/>
       <input onChange={handleChange} value={formState.strInstructions} type="text" name="strInstructions"  placeholder="Instructions" />
       <button  type="submit"> Add Recipe</button>
