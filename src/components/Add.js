@@ -35,7 +35,7 @@ let newMeal = {
      "strInstructions": e.target.strInstructions.value,
      "strMealThumb": e.target.strMealThumb.value,
       }
-      fetch("http://localhost:8000/recipes", {
+      fetch(`${process.env.REACT_APP_API_URL}/recipes`, {
         method:'POST',
         headers:  {
           "Content-type": "application/json"
@@ -56,7 +56,7 @@ let newMeal = {
 
      
      useEffect(() => {
-        fetch("http://localhost:8000/recipes")
+        fetch(`${process.env.REACT_APP_API_URL}/recipes`)
         .then(response => response.json())
         .then(data => setAllRecipes(data))
      }, [])
@@ -64,7 +64,7 @@ let newMeal = {
     
      
      function deleteRecipe(recipe){
-      fetch(`http://localhost:8000/recipes/${recipe.id}`, {
+      fetch(`${process.env.REACT_APP_API_URL}/recipes/${recipe.id}`, {
         method: "DELETE"
       })
       .then(()=> setAllRecipes(allRecipes.filter((meal)=> meal.id !== recipe.id)))

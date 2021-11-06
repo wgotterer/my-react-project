@@ -7,8 +7,8 @@ function Favorites({faveMeals, handleDelete}) {
   const prevMealRef = useRef(faveMeals.length)
 
   useEffect(() => {
-    if(faveMeals.length === 4){
-      window.alert("By golly! You sure like food! You'll be cookin' up a storm!");
+    if(faveMeals.length === 3){
+      window.alert("Golly gee! You sure like food! You'll be cookin' up a storm!");
     }
     prevMealRef.current = faveMeals
   }, [faveMeals])

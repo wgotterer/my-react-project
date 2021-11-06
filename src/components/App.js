@@ -24,7 +24,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8000/meals")
+    fetch(`${process.env.REACT_APP_API_URL}/meals`)
     .then((resp)=>resp.json())
     .then((savedFaves)=>setFaveMeals(savedFaves))
   }, [])
@@ -69,7 +69,7 @@ function App() {
       "strMeasure12": individualRecipe.strMeasure12,
   }
   
-    fetch("http://localhost:8000/meals", {
+    fetch(`${process.env.REACT_APP_API_URL}/meals`, {
       method:"POST",
       headers:{
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ function App() {
   }
 
   function handleDelete(meal){
-    fetch(`http://localhost:8000/meals/${meal.id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/meals/${meal.id}`, {
         method: "DELETE"
     })
     .then(()=>setFaveMeals(faveMeals.filter((oneMeal)=>oneMeal.id !== meal.id)))
