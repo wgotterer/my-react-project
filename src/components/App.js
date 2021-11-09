@@ -24,6 +24,7 @@ function App() {
 
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_API_URL)
     fetch(`${process.env.REACT_APP_API_URL}/meals`)
     .then((resp)=>resp.json())
     .then((savedFaves)=>setFaveMeals(savedFaves))
