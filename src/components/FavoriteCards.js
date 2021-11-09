@@ -27,9 +27,9 @@ function FavoriteCards({meal, handleDelete}) {
     const getIngredients = []
 
     for(let i=1; i<=20; i++){
-      if(meal[`strIngredient${i}`] && meal[`strMeasure${i}`] ===  "" || meal[`strIngredient${i}`] && meal[`strMeasure${i}`] === null){
+      if((meal[`strIngredient${i}`] ===  "" && meal[`strMeasure${i}`] ===  "") || (meal[`strIngredient${i}`] === null && meal[`strMeasure${i}`] === null)){
         break
-      } getIngredients .push(<li>{meal[`strMeasure${i}`]} {meal[`strIngredient${i}`]}</li>)
+      } getIngredients.push(<li>{meal[`strMeasure${i}`]} {meal[`strIngredient${i}`]}</li>)
     }
 
 

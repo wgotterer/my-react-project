@@ -15,8 +15,8 @@ function Home({handleClickForNewPic, handleAddToFavorite, handleShowRecipe, hand
   const listOfIngredients = []
 
   for(let i=1; i<=20; i++){
-    if(individualRecipe[`strIngredient${i}`] && individualRecipe[`strMeasure${i}`] ===  "" || 
-      individualRecipe[`strIngredient${i}`] && individualRecipe[`strMeasure${i}`] === null){
+    if((individualRecipe[`strIngredient${i}`] ===  "" && individualRecipe[`strMeasure${i}`] ===  "") || 
+      (individualRecipe[`strIngredient${i}`] === null && individualRecipe[`strMeasure${i}`] === null)){
       break
     }listOfIngredients.push(<li>{individualRecipe[`strMeasure${i}`]} {individualRecipe[`strIngredient${i}`]}</li>)
   }
